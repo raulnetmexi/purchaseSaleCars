@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">purchaseSaleCars</string>
+    <string name="app_name">Autor: Raul Oropeza</string>
+    <string name="app_name1">version: 1.0</string>
+    <string name="hello_blank_fragment">version: 1.0</string>
+
+
 </resources>
