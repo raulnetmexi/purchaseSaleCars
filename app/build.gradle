@@ -30,8 +30,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        dataBinding = true
+    buildFeatures{
+        viewBinding true
     }
 }
 
@@ -75,4 +75,6 @@ dependencies {
     //Corutinas
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3"
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }
