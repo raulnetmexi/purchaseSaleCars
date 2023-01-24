@@ -45,9 +45,9 @@ class CarAdapter(private val carList: List<CarModel>,
             val context: Context
         ) : BaseViewHolder<CarModel>(binding.root) {
             override fun bind(item: CarModel) {
-                binding.nameAnimalItem.text=item.title.toString()
-                binding.ageAnimalItem.text=item.year.toString()
-                Glide.with(context).load(item.thumbnail).centerCrop().into(binding.imageAnimal)
+                binding.nameCarItem.text=item.title.toString()
+                binding.ageCarItem.text=item.year.toString()
+                Glide.with(context).load(item.thumbnail).centerCrop().into(binding.imageCar)
 
             }
         }

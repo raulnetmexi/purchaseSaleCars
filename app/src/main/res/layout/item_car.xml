@@ -6,40 +6,32 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
     <ImageView
-        android:id="@+id/imageAnimal"
+        android:id="@+id/imageCar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:scaleType="centerCrop" />
     <TextView
-        android:id="@+id/nameAnimalItem"
+        android:id="@+id/nameCarItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageAnimal"
-        android:layout_toEndOf="@+id/imageAnimal"
-        tools:text= "dadawdawdwd" />
+        android:layout_toRightOf="@+id/imageCar"
+        android:layout_toEndOf="@+id/imageCar"
+       />
     <TextView
-        android:id="@+id/ageAnimalItem"
+        android:id="@+id/ageCarItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:textColor="@color/white"
-        android:layout_below="@+id/nameAnimalItem"
-        android:layout_toRightOf="@+id/imageAnimal"
-        android:layout_toEndOf="@+id/imageAnimal"
-        tools:text = "wdawd"/>
-    <TextView
-        android:id="@+id/tvPublisher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        tools:text = "DC"/>
+        android:layout_below="@+id/nameCarItem"
+        android:layout_toRightOf="@+id/imageCar"
+        android:layout_toEndOf="@+id/imageCar"
+        tools:text = "@string/carYear"/>
+
 </RelativeLayout>
