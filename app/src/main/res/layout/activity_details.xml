@@ -128,7 +128,7 @@
                     android:paddingLeft="64dp"
                     android:paddingRight="64dp"
                     android:layout_gravity="center"
-                    android:text="@string/update_profile"
+                    android:text="@string/ubication"
                     android:textColor="@color/white" />
 
             </LinearLayout>

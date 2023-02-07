@@ -56,7 +56,7 @@ class MapActivity : AppCompatActivity(),OnMapReadyCallback {
         map.addMarker(marker)
         map.animateCamera(
             CameraUpdateFactory.newLatLngZoom(coordinates,18f),
-            4000,
+            3000,
             null
         )
     }
