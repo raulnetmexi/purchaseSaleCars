@@ -14,12 +14,25 @@ import mx.com.android.purchasesalecars.databinding.ActivityMapBinding
 class MapActivity : AppCompatActivity(),OnMapReadyCallback {
     private lateinit var map: GoogleMap
     private lateinit var maps:ActivityMapBinding
+    companion object {
+        var latitude:String?=""
+        var longitude:String?=""
+        var make:String?=""
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         maps=ActivityMapBinding.inflate(layoutInflater)
         setContentView(maps.root)
+        val bundle = intent.extras
+
+         latitude = bundle?.getString("latitude", "0")
+         longitude = bundle?.getString("longitude", "0")
+        make = bundle?.getString("make", "")
         createFragment()
     }
+
+
     private fun createFragment()
     {
         val mapFragment:SupportMapFragment=supportFragmentManager.findFragmentById(R.id.google_map) as SupportMapFragment
@@ -34,8 +47,12 @@ class MapActivity : AppCompatActivity(),OnMapReadyCallback {
     }
     private fun createMarker()
     {
-        val coordinates=LatLng(19.423126, -99.144890)
-        val marker:MarkerOptions=MarkerOptions().position(coordinates).title("carro1")
+        val bundle = intent.extras
+        latitude = bundle?.getString("latitude", "0")
+        longitude = bundle?.getString("longitude", "0")
+        make = bundle?.getString("make", "")
+        val coordinates=LatLng(latitude?.toDouble() ?:0.0 , longitude?.toDouble()?:0.0)
+        val marker:MarkerOptions=MarkerOptions().position(coordinates).title(make.toString())
         map.addMarker(marker)
         map.animateCamera(
             CameraUpdateFactory.newLatLngZoom(coordinates,18f),

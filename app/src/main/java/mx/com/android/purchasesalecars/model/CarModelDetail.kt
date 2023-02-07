@@ -29,6 +29,11 @@ data class CarModelDetail(
     var year: String? = null,
 
     @SerializedName("long_desc")
-    var longDesc: String? = null
+    var longDesc: String? = null,
 
+    @SerializedName("latitude")
+    var latitude: String? = null,
+
+    @SerializedName("longitude")
+    var longitude: String? = null
 )

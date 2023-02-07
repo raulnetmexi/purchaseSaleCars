@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import mx.com.android.purchasesalecars.UpdatePasswordActivity
 import mx.com.android.purchasesalecars.databinding.ActivityDetailsBinding
 import mx.com.android.purchasesalecars.model.CarModelDetail
 import mx.com.android.purchasesalecars.services.ServiceApi
@@ -23,7 +22,9 @@ import retrofit2.Response
 class DetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailsBinding
-
+    var latitude:String=""
+    var longitude:String=""
+    var make:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
@@ -31,17 +32,26 @@ class DetailsActivity : AppCompatActivity() {
         title = "Detalle del Auto"
         val bundle = intent.extras
         val id = bundle?.getString("id", "0")
-        binding.ubication.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
-            this.startActivity(intent)
+        binding.viewMap.setOnClickListener {
+        val parametros = Bundle().apply {
+            putString("latitude",latitude)
+            putString("longitude",longitude)
+            putString("make",make)
         }
+        val intent = Intent(this, MapActivity::class.java).apply {
+            putExtras(parametros)
+        }
+        startActivity(intent)
 
+       }
         CoroutineScope(Dispatchers.IO).launch {
             val call = RetrofitService.getRetrofit().create(ServiceApi::class.java).getCarDetailApiary(id)
             call.enqueue(object : Callback<CarModelDetail> {
                 override fun onResponse(call: Call<CarModelDetail>, response: Response<CarModelDetail>) {
                     binding.apply {
-
+                        latitude= response.body()?.latitude.toString()
+                        longitude=response.body()?.longitude.toString()
+                        make=response.body()?.make.toString()
                         tvTitle.text = response.body()?.title
                         tvLongDesc.text = response.body()?.longDesc
                         tvLongDesc1.text = response.body()?.make
@@ -66,7 +76,6 @@ class DetailsActivity : AppCompatActivity() {
         }
 
     }
-
 
 
 
