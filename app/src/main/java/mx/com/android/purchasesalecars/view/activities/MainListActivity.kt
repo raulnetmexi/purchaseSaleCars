@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 
 import kotlinx.coroutines.launch
 import mx.com.android.purchasesalecars.databinding.ActivityMainBinding
+import mx.com.android.purchasesalecars.databinding.ActivityMainListBinding
 
 import mx.com.android.purchasesalecars.model.CarModel
 import mx.com.android.purchasesalecars.services.ServiceApi
@@ -26,13 +27,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class MainActivity : AppCompatActivity(),CarAdapter.OnCarsClickListener  {
+class MainListActivity : AppCompatActivity(),CarAdapter.OnCarsClickListener  {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         title = "Autos en Venta"
         CoroutineScope(Dispatchers.IO).launch {
@@ -52,17 +53,17 @@ class MainActivity : AppCompatActivity(),CarAdapter.OnCarsClickListener  {
                     Log.d(Constants.LOGTAG, "Hilo en el onResponse: ${Thread.currentThread().name}")
 
                     binding.pbConexion.visibility = View.GONE
-                    binding.rvMenu.layoutManager = LinearLayoutManager(this@MainActivity)
-                    binding.rvMenu.adapter=CarAdapter(response.body()!!,this@MainActivity)
+                    binding.rvMenu.layoutManager = LinearLayoutManager(this@MainListActivity)
+                    binding.rvMenu.adapter=CarAdapter(response.body()!!,this@MainListActivity)
                 }
 
                 override fun onFailure(call: Call<ArrayList<CarModel>>, t: Throwable) {
                     Toast.makeText(
-                        this@MainActivity,
+                        this@MainListActivity,
                         "No hay conexión. Error: ${t.message}",
                         Toast.LENGTH_LONG
                     ).show()
-                    binding.pbConexion.visibility = View.GONE
+                 //   binding.pbConexion.visibility = View.GONE
                 }
             })
 

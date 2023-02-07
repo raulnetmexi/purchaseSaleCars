@@ -119,7 +119,24 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                    />
-
+                <TextView
+                    android:id="@+id/ubication"
+                    android:text="@string/ubication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ubuntu"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    />
+                <androidx.appcompat.widget.AppCompatButton
+                       android:id="@+id/viewMap"
+                       android:text="@string/ubication"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"/>
             </LinearLayout>
         </ScrollView>
 
@@ -129,6 +146,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true" />
+
 
     </RelativeLayout>
 

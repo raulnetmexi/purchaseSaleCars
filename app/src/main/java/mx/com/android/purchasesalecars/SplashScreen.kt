@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import mx.com.android.purchasesalecars.view.activities.MainActivity
 
 class SplashScreen : AppCompatActivity() {
 
@@ -18,7 +17,7 @@ class SplashScreen : AppCompatActivity() {
         actionBar!!.hide()
         val handler = Handler()
         handler.postDelayed({ //Code here
-            val myIntent = Intent(this@SplashScreen, MainActivity::class.java)
+            val myIntent = Intent(this@SplashScreen, SignInActivity::class.java)
             startActivity(myIntent)
             finish()
         }, 3000)

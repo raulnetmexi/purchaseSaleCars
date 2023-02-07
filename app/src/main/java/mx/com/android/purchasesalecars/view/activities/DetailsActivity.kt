@@ -1,5 +1,6 @@
 package mx.com.android.purchasesalecars.view.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,10 +9,12 @@ import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import mx.com.android.purchasesalecars.UpdatePasswordActivity
 import mx.com.android.purchasesalecars.databinding.ActivityDetailsBinding
 import mx.com.android.purchasesalecars.model.CarModelDetail
 import mx.com.android.purchasesalecars.services.ServiceApi
 import mx.com.android.purchasesalecars.services.RetrofitService
+import mx.com.android.purchasesalecars.view.MapActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,13 +30,14 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         title = "Detalle del Auto"
         val bundle = intent.extras
-
         val id = bundle?.getString("id", "0")
+        binding.ubication.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            this.startActivity(intent)
+        }
 
         CoroutineScope(Dispatchers.IO).launch {
-
             val call = RetrofitService.getRetrofit().create(ServiceApi::class.java).getCarDetailApiary(id)
-
             call.enqueue(object : Callback<CarModelDetail> {
                 override fun onResponse(call: Call<CarModelDetail>, response: Response<CarModelDetail>) {
                     binding.apply {
@@ -60,5 +64,10 @@ class DetailsActivity : AppCompatActivity() {
 
             })
         }
+
     }
+
+
+
+
 }
