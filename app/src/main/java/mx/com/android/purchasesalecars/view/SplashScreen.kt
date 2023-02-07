@@ -1,10 +1,11 @@
-package mx.com.android.purchasesalecars
+package mx.com.android.purchasesalecars.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import mx.com.android.purchasesalecars.R
 
 class SplashScreen : AppCompatActivity() {
 

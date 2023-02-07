@@ -21,16 +21,16 @@
         <activity
             android:name=".view.activities.DetailsActivity"
             android:exported="false" />
-        <activity android:name=".DeleteAccountActivity" />
-        <activity android:name=".UpdatePasswordActivity" />
-        <activity android:name=".CheckEmailActivity" />
-        <activity android:name=".AccountRecoveryActivity" />
+        <activity android:name=".view.DeleteAccountActivity" />
+        <activity android:name=".view.UpdatePasswordActivity" />
+        <activity android:name=".view.CheckEmailActivity" />
+        <activity android:name=".view.AccountRecoveryActivity" />
         <activity
             android:name=".view.MapActivity"
             android:theme="@style/Theme.Main" />
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".view.SignUpActivity" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".view.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,15 +42,17 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_api_key" />
+
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="false"></activity>
         <activity
-            android:name=".SignInActivity"
+            android:name=".view.SignInActivity"
             android:exported="true"></activity>
     </application>
 

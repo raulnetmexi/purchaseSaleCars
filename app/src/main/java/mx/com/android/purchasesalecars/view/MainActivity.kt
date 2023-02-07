@@ -1,4 +1,4 @@
-package mx.com.android.purchasesalecars
+package mx.com.android.purchasesalecars.view
 
 import android.content.Intent
 import android.net.Uri
@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import mx.com.android.purchasesalecars.R
 import mx.com.android.purchasesalecars.databinding.ActivityMainBinding
 import mx.com.android.purchasesalecars.view.activities.MainListActivity
 
